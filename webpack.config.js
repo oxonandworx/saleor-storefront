@@ -125,7 +125,7 @@ module.exports = (env, argv) => {
           }
         ]
       }),
-      new webpack.EnvironmentPlugin(["npm_package_version", "BACKEND_URL"])
+      new webpack.EnvironmentPlugin(["npm_package_version", "http://178.62.32.233:8000/"])
     ],
     node: {
       fs: "empty"
