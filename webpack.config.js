@@ -10,6 +10,12 @@ const webpack = require("webpack");
 const sourceDir = path.join(__dirname, "./src");
 const distDir = path.join(__dirname, "./dist");
 
+
+new Dotenv({
+  path: './.env', // Path to .env file (this is the default)
+  safe: true // load .env.example (defaults to "false" which does not use dotenv-safe)
+});
+
 module.exports = (env, argv) => {
   const devMode = argv.mode !== "production";
   return {
@@ -125,7 +131,7 @@ module.exports = (env, argv) => {
           }
         ]
       }),
-      new webpack.EnvironmentPlugin(["npm_package_version", "http://178.62.32.233:8000/"])
+      new webpack.EnvironmentPlugin(["npm_package_version", "BACKEND_URL"])
     ],
     node: {
       fs: "empty"
