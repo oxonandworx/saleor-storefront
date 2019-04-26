@@ -11,10 +11,18 @@ const sourceDir = path.join(__dirname, "./src");
 const distDir = path.join(__dirname, "./dist");
 
 
-new Dotenv({
+const Dotenv = require('dotenv-webpack');
+
+module.exports = {
+  ...
+  plugins: [
+    new Dotenv({
   path: './.env', // Path to .env file (this is the default)
   safe: true // load .env.example (defaults to "false" which does not use dotenv-safe)
 });
+  ]
+  ...
+};;
 
 module.exports = (env, argv) => {
   const devMode = argv.mode !== "production";
